@@ -1,0 +1,5 @@
+gradio
+requests
+gradio[oauth]
+python-dotenv
+azure-ai-inference

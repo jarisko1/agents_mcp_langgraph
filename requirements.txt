@@ -2,10 +2,10 @@ gradio
 requests
 gradio[oauth]
 python-dotenv
-azure-ai-inference
 langgraph
 langchain[openai]
 langchain_community
 langchain_experimental
 langsmith
 duckduckgo-search
+openpyxl

@@ -3,9 +3,13 @@ requests
 gradio[oauth]
 python-dotenv
 langgraph
+langchain
 langchain[openai]
 langchain_community
 langchain_experimental
 langsmith
 duckduckgo-search
 openpyxl
+
+youtube_transcript_api
+pytube

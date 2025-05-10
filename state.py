@@ -1,6 +1,7 @@
 from typing import TypedDict, Annotated, Optional, Tuple, List
 
 import operator
+from langchain_community.tools import BaseTool
 from langchain_core.messages import AnyMessage
 from langgraph.graph.message import add_messages
 
@@ -13,6 +14,7 @@ class TaskState(TypedDict):
     file_name: Optional[str]
     file_type: Optional[str]
     file_content: Optional[bytes]
+    tools: Optional[List[BaseTool]]
 
     # Output data
     plan: List[str]

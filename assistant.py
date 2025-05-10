@@ -6,7 +6,6 @@ from langchain_openai import AzureChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from state import TaskState
-from tools import *
 from utils import *
 
 
@@ -17,7 +16,7 @@ assistant_model = AzureChatOpenAI(
     # azure_deployment="gpt-4.1-mini",
     azure_deployment="gpt-4.1",
     openai_api_version=os.environ["AZURE_OPENAI_API_VERSION"],
-).bind_tools(tools, parallel_tool_calls=False)
+)
 
 
 ### Assistant with tools
@@ -32,6 +31,7 @@ def assistant(state: TaskState):
     plan = state["plan"]
     knowledge = state["collected_knowledge"]
     past_steps = state["past_steps"]
+    tools = state["tools"]
 
 
     ### Process data returned from tool
@@ -83,7 +83,7 @@ def assistant(state: TaskState):
 
     ### Continue processing partial task
 
-    response = assistant_model.invoke(assistant_messages)
+    response = assistant_model.bind_tools(tools, parallel_tool_calls=False).invoke(assistant_messages)
     assistant_messages.append(response)
 
     return {

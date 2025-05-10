@@ -1,17 +1,21 @@
 gradio
-requests
 gradio[oauth]
+
+requests
 python-dotenv
 langgraph
 langchain
 langchain[openai]
 langchain_community
 langchain_experimental
+langchain-mcp-adapters
 langsmith
+
 duckduckgo-search
 openpyxl
-
 youtube_transcript_api
 pytube
 
 assemblyai
+
+mcp[cli]

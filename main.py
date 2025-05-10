@@ -4,7 +4,6 @@ from dotenv import load_dotenv
 from langgraph.errors import GraphRecursionError
 from langgraph.graph import StateGraph, START, END
 from langgraph.prebuilt import ToolNode, tools_condition
-from langgraph.graph.message import add_messages
 
 load_dotenv()
 
@@ -49,7 +48,7 @@ compiled_graph = task_graph.compile()
 # display(Image(compiled_graph.get_graph(xray=True).draw_mermaid_png()))
 
 
-### Execution
+### Execution ###
 
 question_generator = get_question(random=False)
 all_answers_payload = []
@@ -118,7 +117,8 @@ for question, task_id, file_name in question_generator:
 
     break
 
-### Submit all produced answers
+
+### Submit all produced answers ###
 
 # all_submission_data = {"username": "jarisko", "agent_code": "https://github.com/jarisko1/hf_agents_course_final", "answers": all_answers_payload}
 # final_status = submit_answer(all_submission_data)

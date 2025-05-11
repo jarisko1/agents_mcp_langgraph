@@ -15,6 +15,7 @@ from langchain_experimental.utilities import PythonREPL
 from tavily import TavilyClient
 
 from langchain_community.retrievers import WikipediaRetriever
+from langchain_community.retrievers import ArxivRetriever
 
 # TTS tool
 import assemblyai as aai
@@ -33,6 +34,7 @@ def transcribe_audio(audio_file: str) -> str | None:
     """Transcribes audio file into text"""
 
     load_dotenv()
+
     aai.settings.api_key = os.environ["ASSEMBLY_AI_API_KEY"]
 
     config = aai.TranscriptionConfig(speech_model=aai.SpeechModel.best)
@@ -85,6 +87,17 @@ def wiki_search(wiki_search_query:str) -> str:
     docs = retriever.invoke(wiki_search_query)
     return str(docs)
 
+### Arxiv search tool
+@mcp.tool()
+def arxiv_search(arxiv_search_query:str) -> str:
+    """
+    Searches for studies in Arxiv on topic.
+    """
+
+    retriever = ArxivRetriever()
+    docs = retriever.invoke(arxiv_search_query)
+    return str(docs)
+
 ### Python tool
 @mcp.tool()
 def python_repl(python_code: str) -> str:
@@ -93,8 +106,11 @@ def python_repl(python_code: str) -> str:
     Input should be a valid python command.
     If you want to see the output of a value, you should print it out with `print(...)`."
     """
+
     python_repl = PythonREPL()
-    return python_repl.run(python_code)
+    result = python_repl.run(python_code, timeout=30)
+
+    return result
 
 if __name__ == "__main__":
     mcp.run(transport="stdio")

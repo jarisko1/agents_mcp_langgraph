@@ -64,7 +64,8 @@ def assistant(state: TaskState):
         # Add file to prompt
         system_content = add_file_to_prompt(assistant_system_prompt, state)
 
-        system_message = SystemMessage(
+        # Note: System prompt, but human message, because it can contain images, which are not correctly interpreted in system prompt
+        system_message = HumanMessage(
             content=system_content
         )
 

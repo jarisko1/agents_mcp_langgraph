@@ -10,9 +10,9 @@
 - Monitoring using LangSmith
 
 ## Outstanding issues
-- Chess question - even the readout of the situation on the board is wrong
+- Python REPL gets stuck on one question
 - Getting stuck on infinite loop with web search - improve with assisstant prompt
-- YouTube videos
+- YouTube video with images
 ```
 Task ID: a1e91b78-d3d8-4675-bb8d-62741b4b68a6
 Question: In the video https://www.youtube.com/watch?v=L1vXCYZAYYM, what is the highest number of bird species to be on camera simultaneously?

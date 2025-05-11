@@ -74,8 +74,8 @@ async def call_model():
 
         for question, task_id, file_name in question_generator:
 
-            # if task_id != "9d191bce-651d-4746-be2d-7ef8ecadb9c2":
-            #     continue
+            if task_id != "cca530fc-4052-43b2-b130-b30968d8aa44":
+                continue
 
             answers_payload = []
 
@@ -135,12 +135,13 @@ async def call_model():
                 print("No answer produced")
                 print("=" * 100)
 
-            break
+            # break
 
 
 
         ### Submit all produced answers ###
 
+        # print("=" * 100)
         # all_submission_data = {"username": "jarisko", "agent_code": "https://github.com/jarisko1/agents_mcp_langgraph", "answers": all_answers_payload}
         # final_status = submit_answer(all_submission_data)
         # print(final_status)

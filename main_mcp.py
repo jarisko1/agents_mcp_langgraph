@@ -31,6 +31,11 @@ async def call_model():
                 "args": ["./mcp_server.py"],
                 "transport": "stdio",
             },
+            # "tavily_mcp": {
+            #     "command": "python",
+            #     "args": ["./test_mcp/tavily_mcp.py"],
+            #     "transport": "stdio",
+            # },
         } # type: ignore
     ) as client:
 
@@ -74,8 +79,8 @@ async def call_model():
 
         for question, task_id, file_name in question_generator:
 
-            if task_id != "cca530fc-4052-43b2-b130-b30968d8aa44":
-                continue
+            # if task_id != "cca530fc-4052-43b2-b130-b30968d8aa44":
+            #     continue
 
             answers_payload = []
 
@@ -135,7 +140,7 @@ async def call_model():
                 print("No answer produced")
                 print("=" * 100)
 
-            # break
+            break
 
 
 

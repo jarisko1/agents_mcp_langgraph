@@ -17,5 +17,6 @@ youtube_transcript_api
 pytube
 tavily-python
 assemblyai
+wikipedia
 
 mcp[cli]

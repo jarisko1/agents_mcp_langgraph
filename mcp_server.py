@@ -14,6 +14,8 @@ from langchain_experimental.utilities import PythonREPL
 # from langchain_community.tools.tavily_search import TavilySearchResults
 from tavily import TavilyClient
 
+from langchain_community.retrievers import WikipediaRetriever
+
 # TTS tool
 import assemblyai as aai
 
@@ -71,6 +73,17 @@ def websearch(websearch_query:str) -> str:
     client = TavilyClient()
     result = client.search(query=websearch_query, search_depth="basic", max_results=3)
     return str(result)
+
+### Wikipedia search tool
+@mcp.tool()
+def wiki_search(wiki_search_query:str) -> str:
+    """
+    Searches Wikipedia for topic.
+    """
+
+    retriever = WikipediaRetriever()
+    docs = retriever.invoke(wiki_search_query)
+    return str(docs)
 
 ### Python tool
 @mcp.tool()

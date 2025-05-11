@@ -125,7 +125,7 @@ async def call_model():
                 all_answers_payload.extend(answers_payload)
 
                 # TODO: Copy the final implementation to a Hugging Face space
-                submission_data = {"username": "jarisko", "agent_code": "https://github.com/jarisko1/hf_agents_course_final", "answers": answers_payload}
+                submission_data = {"username": "jarisko", "agent_code": "https://github.com/jarisko1/agents_mcp_langgraph", "answers": answers_payload}
 
                 final_status = submit_answer(submission_data)
                 print(final_status)
@@ -141,7 +141,7 @@ async def call_model():
 
         ### Submit all produced answers ###
 
-        # all_submission_data = {"username": "jarisko", "agent_code": "https://github.com/jarisko1/hf_agents_course_final", "answers": all_answers_payload}
+        # all_submission_data = {"username": "jarisko", "agent_code": "https://github.com/jarisko1/agents_mcp_langgraph", "answers": all_answers_payload}
         # final_status = submit_answer(all_submission_data)
         # print(final_status)
 

@@ -15,7 +15,7 @@ duckduckgo-search
 openpyxl
 youtube_transcript_api
 pytube
-
+tavily-python
 assemblyai
 
 mcp[cli]

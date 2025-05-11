@@ -45,6 +45,7 @@ def validator(state: TaskState):
         "Your role is to check whether the assistant's answer matches exactly the required structure. "
         "Except requirement directly in the question, the answer has to be short, concise and to the point. "
         "It should contain only the requested information without additional words. "
+        "No additional puctuation and words are permitted. " # Added
         "Decline any leading up phrases. " # Added
         "Require perfecetion. "
         "Focus only on formatting, not on verifying the facts or contents. "

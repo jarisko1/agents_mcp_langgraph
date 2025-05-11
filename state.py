@@ -14,7 +14,7 @@ class TaskState(TypedDict):
     file_name: Optional[str]
     file_type: Optional[str]
     file_content: Optional[bytes]
-    tools: Optional[List[BaseTool]]
+    tools_list: Optional[List[BaseTool]]
 
     # Output data
     plan: List[str]

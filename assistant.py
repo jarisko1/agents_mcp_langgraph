@@ -31,7 +31,7 @@ def assistant(state: TaskState):
     plan = state["plan"]
     knowledge = state["collected_knowledge"]
     past_steps = state["past_steps"]
-    tools = state["tools"]
+    tools = state["tools_list"]
 
 
     ### Process data returned from tool

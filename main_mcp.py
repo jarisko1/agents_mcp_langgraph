@@ -93,14 +93,14 @@ async def call_model():
             # Try multiple times
             for i in range(1):
                 try:
-                    task_answer = compiled_graph.invoke(
+                    task_answer = await compiled_graph.ainvoke(
                         {
                             "question": question,
                             "task_id": "1",
                             "file_name": file_name,
                             "file_type": file_type,
                             "file_content": file_content,
-                            "tools": tools,
+                            "tools_list": tools,
                             "answer": "",
                             "tool_messages": [],
                             "assistant_messages": [],
@@ -145,7 +145,7 @@ async def call_model():
         # final_status = submit_answer(all_submission_data)
         # print(final_status)
 
-        return all_submission_data
+        return all_answers_payload
 
 
 if __name__ == "__main__":

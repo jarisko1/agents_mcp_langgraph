@@ -2,7 +2,8 @@ from dotenv import load_dotenv
 import os
 
 # YouTube transcription tool
-from langchain.document_loaders import YoutubeLoader
+# from langchain.document_loaders import YoutubeLoader
+from langchain_community.document_loaders import YoutubeLoader
 
 # Python tool
 from langchain_experimental.utilities import PythonREPL

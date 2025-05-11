@@ -2,15 +2,17 @@ from dotenv import load_dotenv
 import os
 
 # YouTube transcription tool
-from langchain.document_loaders import YoutubeLoader
+# from langchain.document_loaders import YoutubeLoader
+from langchain_community.document_loaders import YoutubeLoader
 
 # Python tool
 from langchain_experimental.utilities import PythonREPL
 
 # Search tools
-from langchain_community.tools import Tool, DuckDuckGoSearchRun
-from langchain_community.utilities import GoogleSerperAPIWrapper
-from langchain_community.tools.tavily_search import TavilySearchResults
+# from langchain_community.tools import Tool, DuckDuckGoSearchRun
+# from langchain_community.utilities import GoogleSerperAPIWrapper
+# from langchain_community.tools.tavily_search import TavilySearchResults
+from tavily import TavilyClient
 
 # TTS tool
 import assemblyai as aai
@@ -64,8 +66,11 @@ def websearch(websearch_query:str) -> str:
     Input should be a search query.
     """
 
-    search_tool = TavilySearchResults(max_results=3)
-    return search_tool.invoke(websearch_query)
+    load_dotenv()
+
+    client = TavilyClient()
+    result = client.search(query=websearch_query, search_depth="basic", max_results=3)
+    return str(result)
 
 ### Python tool
 @mcp.tool()
